@@ -1,0 +1,109 @@
+# Technologie-informacyjne
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{graphicx}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+
+\title{Sprawozdanie - Spadek swobodny}
+\author{Julia Sujka}
+\date{December 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Wprowadzenie teoretyczne}
+Spadek swobodny albo spadanie swobodne jest to ruch ciała w polu grawitacyjnym upuszczonego z
+pewnej wysokości na ziemię. Spadek swobodny jest przykładem ruchu jednostajnie przyspieszonego
+prostoliniowego z przyspieszeniem $a=g=const$. Przyspieszenie to nazywamy przyspieszeniem
+ziemskim i oznaczamy je literą $g$. Jeżeli spadek ma miejsce z małej wysokości w pobliżu powierzchni
+Ziemi i dotyczy ciała o stosunkowo dużej gęstości i aerodynamicznym kształcie (np. kuli), wówczas
+ruch takiego ciała można z dobrym przybliżeniem traktować jak ruch jednostajnie przyspieszony z
+przyspieszeniem ziemskim g bez prędkości początkowej. Ruch ten opisuje kinematyczne równanie
+ruchu w postaci:
+\\
+\\
+\begin{equation}
+h(t)=h_0=\frac{gt^2}{2}
+\end{equation}\\
+\\
+gdzie: \\
+$h(t)$ – wysokość, na jakiej znajduje się ciało po czasie t \\
+$h_0$ - wysokość z jakiej spada ciało; \\
+$t$ - czas spadku;\\
+$g$ - wartość przyspieszenia ziemskiego.\\
+
+\newpage
+
+\section{Opis eksperymentu}
+\begin{center}
+\begin{figure}[hp]
+\centering
+\includegraphics[scale=0.45]{pic.png}
+\caption{Schemat doświadczenia}
+\label{fig:schemat}
+\end{figure}
+\end{center}
+Jak widać na Rysunku \ref{fig:schemat} kulkę zrzucono z 20 metrów.
+
+\section{Wyniki pomiarów}
+\begin{table}[hp]
+\caption{Spadek swobodny}
+\label{tab: Spadek_swobodny}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline Lp. & $t[s]$ & $s[m]$ & $delta$ $s[m]$ & $2s[m]$\\
+\hline
+1 & 0,100 & 0,049 & -0,708 & -0,659\\\hline
+2 & 0,200 & 0,196 & 3,513 & 3,709\\\hline
+3 & 0,300 & 0,441 & -4,191 & -3,750\\\hline
+4 & 0,400 & 0,784 & 2,181 & 2,965\\\hline
+5 & 0,500 & 1,225 & 2,646 & 3,871\\\hline
+6 & 0,600 & 1,764 & 1,869 & 3,633\\\hline
+7 & 0,700 & 2,401 & 3,001 & 5,402\\\hline
+8 & 0,800 & 3,136 & 1,919 & 5,055\\\hline
+9 & 0,900 & 3,969 & -0,862 & 3,107\\\hline
+10 & 1,000 & 4,900 & 1,135 & 6,035\\\hline
+11 & 1,100 & 5,929 & -1,704 & 4,225\\\hline
+12 & 1,200 & 7,056 & 0,212 & 7,268\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = \(Czas\),
+    ylabel = {\(Droga\)},
+]
+%Below the red parabola is defined
+\addplot [
+    domain=0.0:10.00, 
+    samples=100, 
+    color=red,
+]
+{9.81*x^2 * 0.5};
+\addlegendentry{\(9.81*x^2 * 0.5\)}
+\addplot[
+    only marks,
+    scatter,
+    mark size=0.5pt]
+table[meta=czas]
+{spadek swobodny.csv};
+
+\end{axis}
+\end{tikzpicture}
+
+
+\newpage
+\section{Wnioski}
+Otrzymana wartość przyspieszenia ziemskiego różni się od znanej nam wartości 9.81 $\frac{m}{s^2}$, ale
+pamiętajmy, że nieodłącznym czynnikiem każdego doświadczenia są błędy pomiarowe. Jeśli chodzi o
+pomiar czasu, to możemy przyjąć, że błędy były niewielkie, ale za to spore błędy pojawiły się przy
+pomiarze drogi
+
+\end{document}
